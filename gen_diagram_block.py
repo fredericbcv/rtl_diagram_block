@@ -191,6 +191,12 @@ def gen_diagram_block(file_path):
 				if left_port_list[x]["direction"].lower() == "output":
 					draw.line( ((line_x1,line_y1), (line_x1+7,line_y1-7)), fill="black", width=line_width )
 					draw.line( ((line_x1,line_y1), (line_x1+7,line_y1+7)), fill="black", width=line_width )
+				if left_port_list[x]["direction"].lower() == "inout":
+					draw.line( ((line_x0,line_y0), (line_x0-7,line_y0-7)), fill="black", width=line_width )
+					draw.line( ((line_x0,line_y0), (line_x0-7,line_y0+7)), fill="black", width=line_width )
+					draw.line( ((line_x1,line_y1), (line_x1+7,line_y1-7)), fill="black", width=line_width )
+					draw.line( ((line_x1,line_y1), (line_x1+7,line_y1+7)), fill="black", width=line_width )
+
 
 		right_value = ""
 		if x < len(right_port_list):
@@ -236,7 +242,11 @@ def gen_diagram_block(file_path):
 				if right_port_list[x]["direction"].lower() == "output":
 					draw.line( ((line_x1,line_y1), (line_x1-7,line_y1-7)), fill="black", width=line_width )
 					draw.line( ((line_x1,line_y1), (line_x1-7,line_y1+7)), fill="black", width=line_width )
-
+				if right_port_list[x]["direction"].lower() == "inout":
+					draw.line( ((line_x0,line_y0), (line_x0+7,line_y0-7)), fill="black", width=line_width )
+					draw.line( ((line_x0,line_y0), (line_x0+7,line_y0+7)), fill="black", width=line_width )
+					draw.line( ((line_x1,line_y1), (line_x1-7,line_y1-7)), fill="black", width=line_width )
+					draw.line( ((line_x1,line_y1), (line_x1-7,line_y1+7)), fill="black", width=line_width )
 
 	canvas.save(file_name+".png", "PNG")
 	canvas.show()
